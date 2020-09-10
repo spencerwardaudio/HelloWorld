@@ -24,6 +24,25 @@ struct Widget : public Component
     int num = 0;
 };
 
+struct RepeatingThing : Component, Timer
+{
+    void timerCallback() override
+    {
+        drawRed = !drawRed;
+        repaint();
+    }
+    void paint(Graphics& g) override
+    {
+        g.fillAll( drawRed ? Colours::red : Colours::green );
+    }
+    
+    RepeatingThing() { startTimerHz(2); }
+    ~RepeatingThing() { stopTimer(); }
+    
+private:
+    bool drawRed = true;
+};
+
 struct OwnedArrayComponent : Component, Button::Listener
 {
     OwnedArrayComponent();
@@ -98,6 +117,8 @@ private:
     MyComp comp;
     OwnedArrayComponent ownedArrayComp;
     DualButton dualButton;
+    
+    RepeatingThing repeatingThing;
     //==============================================================================
     // Your private member variables go here...
 

@@ -22,6 +22,7 @@ void DualButton::resized()
     button1.setBounds(bounds.removeFromLeft(30) );
     button2.setBounds(bounds);
 }
+//==============================================================================
 
 //==============================================================================
 OwnedArrayComponent::OwnedArrayComponent()
@@ -82,6 +83,8 @@ MainComponent::MainComponent()
     
     addAndMakeVisible(dualButton);
     
+    addAndMakeVisible(repeatingThing);
+    
     setSize (600, 400);
 }
 
@@ -111,5 +114,7 @@ void MainComponent::resized()
 
     
     dualButton.setBounds(comp.getBounds().withX(comp.getRight()+5));
+    
+    repeatingThing.setBounds(dualButton.getBounds().withX(dualButton.getRight() + 5));
 
 }
