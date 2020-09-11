@@ -29,6 +29,50 @@ struct Widget : public Component
     int num = 0;
 };
 
+struct MyAsyncHighResGui : Component, AsyncUpdater, HighResolutionTimer
+{
+    void handleAsyncUpdate() override
+    {
+        paintColor = (paintColor + 1) % maxColors;
+        repaint();
+    }
+    void hiResTimerCallback() override
+    {
+        triggerAsyncUpdate();
+    }
+    
+    void paint(Graphics& g) override
+    {
+        switch (paintColor)
+        {
+            case 0:
+                g.setColour(Colours::red);
+                break;
+            case 1:
+                g.setColour(Colours::green);
+                break;
+            case 2:
+                g.setColour(Colours::blue);
+                break;
+        }
+        g.fillAll();
+    }
+    
+    MyAsyncHighResGui()
+    {
+        this->startTimer( 1000 / 5 );
+    }
+    
+    ~MyAsyncHighResGui()
+    {
+        stopTimer();
+        cancelPendingUpdate();
+    }
+private:
+    int paintColor = 0;
+    const int maxColors { 3 };
+};
+
 struct RepeatingThing : Component, Timer
 {
     void timerCallback() override
@@ -121,10 +165,9 @@ private:
 //    int counter = 0;
     MyComp comp;
     OwnedArrayComponent ownedArrayComp;
-    
     RepeatingThing repeatingThing;
-    
     DualButton dualButton; //{ repeatingThing };
+    MyAsyncHighResGui hiResGui;
     
 
     //==============================================================================
