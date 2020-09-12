@@ -1,6 +1,7 @@
 #pragma once
 
 #include <JuceHeader.h>
+#include "DataRace.h"
 
 //struct RepeatingThing;
 struct DualButton : public Component
@@ -168,7 +169,8 @@ private:
     RepeatingThing repeatingThing;
     DualButton dualButton; //{ repeatingThing };
     MyAsyncHighResGui hiResGui;
-    
+//    Renderer renderer;
+    Test test;
 
     //==============================================================================
     // Your private member variables go here...

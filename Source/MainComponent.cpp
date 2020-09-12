@@ -114,6 +114,11 @@ MainComponent::MainComponent()
     addAndMakeVisible(repeatingThing);
     addAndMakeVisible( hiResGui );
     
+<<<<<<< Updated upstream
+=======
+//    addAndMakeVisible( renderer );
+    
+>>>>>>> Stashed changes
     setSize (600, 400);
 }
 
@@ -147,5 +152,10 @@ void MainComponent::resized()
     repeatingThing.setBounds(dualButton.getBounds().withX(dualButton.getRight() + 5));
     
     hiResGui.setBounds(repeatingThing.getBounds().withX(repeatingThing.getRight() + 5));
+<<<<<<< Updated upstream
+=======
+    
+//    renderer.setBounds(hiResGui.getBounds().withX(hiResGui.getRight() + 5));
+>>>>>>> Stashed changes
 
 }
