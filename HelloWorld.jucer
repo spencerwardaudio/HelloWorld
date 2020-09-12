@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="X7DG9P" name="HelloWorld" projectType="guiapp" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+              jucerFormatVersion="1">
   <MAINGROUP id="wLgau0" name="HelloWorld">
     <GROUP id="{86509F4C-538D-470A-3CF3-DBDFBF019934}" name="Source">
       <FILE id="lIinCF" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
       <FILE id="yAbelP" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
       <FILE id="nBodb6" name="MainComponent.cpp" compile="1" resource="0"
             file="Source/MainComponent.cpp"/>
+      <FILE id="AWQqlh" name="DataRace.h" compile="0" resource="0" file="Source/DataRace.h"/>
+      <FILE id="fsHgzE" name="DataRace.cpp" compile="1" resource="0" file="Source/DataRace.cpp"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
